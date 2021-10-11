@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "uuid": "^8.3.2",
-    "amqplib": "^0.5.5"
+    "amqplib": "^0.5.5",
+    "node-fetch": "^2.6.1",
+    "p-map": "^5.1.0",
+    "ramda": "^0.27.1",
+    "uuid": "^8.3.2"
   }
 }
