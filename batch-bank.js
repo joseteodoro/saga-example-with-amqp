@@ -8,11 +8,11 @@ const onMessage = msg => {
     if (db.findAccount(bank, account)) {
         db.transact(bank, { account, value: parseInt(value, 10), sourceBank, sourceAccount })
         console.log(`Transaction processed: ${content}`)
-        // process.exit(0)
+        process.exit(0)
     }
     console.log(`Couldnt find account: ${account}. Sending value back for source`);
     queue.send(sourceBank, { account: sourceAccount, value })
-    // process.exit(0)
+    process.exit(0)
 }
 
 queue.listen(bank, onMessage)
