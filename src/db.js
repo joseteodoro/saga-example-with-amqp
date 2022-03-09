@@ -1,9 +1,12 @@
 const fs = require('fs');
 const uuidv5 = require('uuid').v4;
-const seeder = require('./banks/seeder.json');
+
+const BANKS_DIR = `${__dirname}/../banks`
+
+const seeder = require(`${BANKS_DIR}/seeder.json`);
 
 const con = (bank) => {
-    const dbFile = `./banks/${bank}.json`;
+    const dbFile = `${BANKS_DIR}/${bank}.json`;
     if (!fs.existsSync(dbFile)) {
         fs.writeFileSync(dbFile, JSON.stringify(seeder));
     }
@@ -12,7 +15,7 @@ const con = (bank) => {
 
 const save = (bank, { account, transaction, message } = {}) => {
     const { accounts: acc, transactions: trx, messages: msg} = con(bank);
-    const dbFile = `./banks/${bank}.json`;
+    const dbFile = `${BANKS_DIR}/${bank}.json`;
     fs.writeFileSync(dbFile, JSON.stringify({
         accounts: account ? acc.concat(account) : acc,
         transactions: transaction ? trx.concat(transaction) : trx,
@@ -40,6 +43,10 @@ const balance = (bank, uuid) => {
     console.log(`Balance for ${uuid} is ${accountBalance}`)
 }
 
+const balances = (bank) => {
+    return con(bank).accounts.map(({uuid}) => balance(bank, uuid))
+}
+
 const findAccount = (bank, account) => con(bank).accounts.find(({uuid}) => uuid === account)
 
-module.exports = { createAccount, addMessage, transact, save, balance, findAccount }
+module.exports = { createAccount, addMessage, transact, save, balance, findAccount, balances }

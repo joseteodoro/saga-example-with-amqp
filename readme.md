@@ -36,3 +36,13 @@ You can start a batch listener using
 ```
 node src/batch-bank.js <bank-name>
 ```
+
+You can deposit using 
+```
+node src/deposit.js <bank-name> <account> <value>
+```
+
+You can withdraw using
+```
+node src/withdraw.js <bank-name> <account> <value>
+```

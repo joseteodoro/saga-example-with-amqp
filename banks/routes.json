@@ -1,0 +1,16 @@
+{
+    "static": {
+        "itau": {
+            "bb": "loopback",
+            "c6": "loopback"
+        },
+        "c6": {
+            "itau": "loopback",
+            "bb": ["itau", "bb"]
+        },
+        "bb": {
+            "itau": "loopback",
+            "c6": ["itau", "c6"]
+        }
+    }    
+}
