@@ -1,4 +1,9 @@
-# example using amqp and nodejs
+# Simple SAGA example using amqp and nodejs
+
+The banks works as the following the diagram:
+
+
+
 
 Before everything, start the rabbit:
 
