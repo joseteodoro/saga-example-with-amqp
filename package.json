@@ -1,0 +1,18 @@
+{
+  "name": "amqp-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.5",
+    "node-fetch": "^2.6.1",
+    "p-map": "^5.1.0",
+    "ramda": "^0.27.1",
+    "uuid": "^8.3.2"
+  }
+}
